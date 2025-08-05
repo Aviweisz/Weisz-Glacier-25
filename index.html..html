@@ -1,315 +1,276 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.5">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #4689cc; -webkit-text-stroke: #4689cc}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #8cd3fe; -webkit-text-stroke: #8cd3fe}
-    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #c27e65; -webkit-text-stroke: #c27e65}
-    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #cacaca; -webkit-text-stroke: #cacaca}
-    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #6d7378; -webkit-text-stroke: #6d7378}
-    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #cacaca; -webkit-text-stroke: #cacaca; min-height: 16.0px}
-    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #71c083; -webkit-text-stroke: #71c083}
-    p.p8 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #71c083; -webkit-text-stroke: #71c083; background-color: #171818}
-    span.s1 {font-kerning: none; background-color: #171818}
-    span.s2 {font-kerning: none; color: #8cd3fe; background-color: #171818; -webkit-text-stroke: 0px #8cd3fe}
-    span.s3 {font-kerning: none; color: #6d6d6d; background-color: #171818; -webkit-text-stroke: 0px #6d6d6d}
-    span.s4 {font-kerning: none; color: #cacaca; background-color: #171818; -webkit-text-stroke: 0px #cacaca}
-    span.s5 {font-kerning: none; color: #c27e65; background-color: #171818; -webkit-text-stroke: 0px #c27e65}
-    span.s6 {font-kerning: none; color: #4689cc; background-color: #171818; -webkit-text-stroke: 0px #4689cc}
-    span.s7 {font-kerning: none; color: #d4d4d4; background-color: #171818; -webkit-text-stroke: 0px #d4d4d4}
-    span.s8 {font-kerning: none; color: #71c083; background-color: #171818; -webkit-text-stroke: 0px #71c083}
-    span.s9 {font-kerning: none; color: #a7c598; background-color: #171818; -webkit-text-stroke: 0px #a7c598}
-    span.s10 {font-kerning: none}
-    span.s11 {font-kerning: none; color: #b76ff7; background-color: #171818; -webkit-text-stroke: 0px #b76ff7}
-    span.s12 {font-kerning: none; color: #cacaca; -webkit-text-stroke: 0px #cacaca}
-    span.s13 {font-kerning: none; color: #d4d4d4; -webkit-text-stroke: 0px #d4d4d4}
-    span.s14 {font-kerning: none; color: #36c0a0; background-color: #171818; -webkit-text-stroke: 0px #36c0a0}
-    span.s15 {font-kerning: none; color: #f67c30; background-color: #171818; -webkit-text-stroke: 0px #f67c30}
-    span.s16 {font-kerning: none; color: #6d7378; background-color: #171818; -webkit-text-stroke: 0px #6d7378}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weisz Family Glacier Adventure</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d1117;
+            color: #c9d1d9;
+        }
+        .header-bar {
+            background-color: #161b22;
+            border-bottom: 1px solid #30363d;
+        }
+        .info-box {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+        }
+        .accordion-item {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 0.75rem;
+            transition: box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        .accordion-item:hover {
+             border-color: #238636;
+             box-shadow: 0 0 15px rgba(35, 134, 54, 0.5);
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+            background-color: #0d1117;
+            border-bottom-left-radius: 0.75rem;
+            border-bottom-right-radius: 0.75rem;
+        }
+        .accordion-item.active .accordion-content {
+            max-height: 1000px; /* Large enough to fit content */
+            padding: 1.5rem;
+        }
+        .accordion-item.active .chevron {
+            transform: rotate(180deg);
+        }
+        .chevron {
+            transition: transform 0.3s ease-in-out;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 10px;
+            bottom: -10px;
+            width: 2px;
+            background-color: #30363d;
+            transform: translateX(-50%);
+        }
+        .timeline-item:last-child::before {
+            display: none;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: 8px;
+            top: 5px;
+            height: 1rem;
+            width: 1rem;
+            transform: translateX(-50%);
+            border-radius: 9999px;
+            background-color: #8b949e;
+            border: 3px solid #0d1117;
+        }
+        details > summary {
+            list-style: none;
+        }
+        details > summary::-webkit-details-marker {
+            display: none;
+        }
+    </style>
 </head>
-<body>
-<p class="p1"><span class="s1">&lt;!DOCTYPE</span><span class="s2"> html</span><span class="s1">&gt;</span></p>
-<p class="p1"><span class="s3">&lt;</span><span class="s1">html</span><span class="s4"> </span><span class="s2">lang</span><span class="s3">=</span><span class="s5">"en"</span><span class="s3">&gt;</span></p>
-<p class="p1"><span class="s3">&lt;</span><span class="s1">head</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">meta</span><span class="s4"> </span><span class="s1">charset</span><span class="s3">=</span><span class="s5">"UTF-8"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">meta</span><span class="s4"> </span><span class="s2">name</span><span class="s3">=</span><span class="s1">"viewport"</span><span class="s4"> </span><span class="s2">content</span><span class="s3">=</span><span class="s1">"width=device-width, initial-scale=1.0"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">title</span><span class="s3">&gt;</span><span class="s1">Weisz Family Glacier Adventure</span><span class="s3">&lt;/</span><span class="s6">title</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">script</span><span class="s4"> </span><span class="s2">src</span><span class="s3">=</span><span class="s1">"https://cdn.tailwindcss.com"</span><span class="s3">&gt;&lt;/</span><span class="s6">script</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">link</span><span class="s4"> </span><span class="s2">rel</span><span class="s3">=</span><span class="s1">"preconnect"</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"https://fonts.googleapis.com"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">link</span><span class="s4"> </span><span class="s2">rel</span><span class="s3">=</span><span class="s1">"preconnect"</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"https://fonts.gstatic.com"</span><span class="s4"> </span><span class="s2">crossorigin</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">link</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"</span><span class="s4"> </span><span class="s2">rel</span><span class="s3">=</span><span class="s1">"stylesheet"</span><span class="s3">&gt;</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s1">style</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s6">body</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">font-family:</span><span class="s1"> </span><span class="s8">'Inter'</span><span class="s7">,</span><span class="s1"> </span><span class="s5">sans-serif</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">background-color:</span><span class="s1"> #0d1117</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">color:</span><span class="s1"> #c9d1d9</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.header-bar</span><span class="s4"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">background-color:</span><span class="s1"> #161b22</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">border-bottom:</span><span class="s1"> </span><span class="s9">1px</span><span class="s1"> </span><span class="s5">solid</span><span class="s1"> #30363d</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s6">.info-box</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">background-color:</span><span class="s1"> #161b22</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">border:</span><span class="s1"> </span><span class="s9">1px</span><span class="s1"> </span><span class="s5">solid</span><span class="s1"> #30363d</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.accordion-item</span><span class="s4"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">background-color:</span><span class="s1"> #161b22</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">border:</span><span class="s1"> </span><span class="s9">1px</span><span class="s1"> </span><span class="s5">solid</span><span class="s1"> #30363d</span><span class="s7">;</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">border-radius:</span><span class="s4"> </span><span class="s9">0.75rem</span><span class="s7">;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">transition:</span><span class="s4"> </span><span class="s1">box-shadow</span><span class="s4"> </span><span class="s9">0.3s</span><span class="s4"> </span><span class="s1">ease</span><span class="s7">,</span><span class="s4"> </span><span class="s1">border-color</span><span class="s4"> </span><span class="s9">0.3s</span><span class="s4"> </span><span class="s1">ease</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.accordion-item:hover</span><span class="s4"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">             </span></span><span class="s2">border-color:</span><span class="s1"> #238636</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">             </span></span><span class="s2">box-shadow:</span><span class="s1"> </span><span class="s9">0</span><span class="s1"> </span><span class="s9">0</span><span class="s1"> </span><span class="s9">15px</span><span class="s1"> </span><span class="s5">rgba(</span><span class="s9">35</span><span class="s7">,</span><span class="s1"> </span><span class="s9">134</span><span class="s7">,</span><span class="s1"> </span><span class="s9">54</span><span class="s7">,</span><span class="s1"> </span><span class="s9">0.5</span><span class="s5">)</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.accordion-content</span><span class="s4"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">max-height:</span><span class="s1"> </span><span class="s9">0</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">overflow:</span><span class="s1"> </span><span class="s5">hidden</span><span class="s7">;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">transition:</span><span class="s4"> </span><span class="s1">max-height</span><span class="s4"> </span><span class="s9">0.5s</span><span class="s4"> </span><span class="s1">ease-in-out</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">background-color:</span><span class="s1"> #0d1117</span><span class="s7">;</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">border-bottom-left-radius:</span><span class="s4"> </span><span class="s9">0.75rem</span><span class="s7">;</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">border-bottom-right-radius:</span><span class="s4"> </span><span class="s9">0.75rem</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.accordion-item.active</span><span class="s4"> </span><span class="s1">.accordion-content</span><span class="s4"> </span><span class="s7">{</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">max-height:</span><span class="s4"> </span><span class="s9">1000px</span><span class="s7">;</span><span class="s4"> </span><span class="s1">/* Large enough to fit content */</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">padding:</span><span class="s1"> </span><span class="s9">1.5rem</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.accordion-item.active</span><span class="s4"> </span><span class="s1">.chevron</span><span class="s4"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">transform:</span><span class="s1"> </span><span class="s5">rotate(</span><span class="s9">180deg</span><span class="s5">)</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s6">.chevron</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s2">transition:</span><span class="s4"> </span><span class="s1">transform</span><span class="s4"> </span><span class="s9">0.3s</span><span class="s4"> </span><span class="s1">ease-in-out</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.timeline-item::before</span><span class="s4"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">content:</span><span class="s1"> </span><span class="s8">''</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">position:</span><span class="s1"> </span><span class="s5">absolute</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">left:</span><span class="s1"> </span><span class="s9">8px</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">top:</span><span class="s1"> </span><span class="s9">10px</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">bottom:</span><span class="s1"> </span><span class="s9">-10px</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">width:</span><span class="s1"> </span><span class="s9">2px</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">background-color:</span><span class="s1"> #30363d</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">transform:</span><span class="s1"> </span><span class="s5">translateX(</span><span class="s9">-50%</span><span class="s5">)</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.timeline-item:last-child::before</span><span class="s4"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">display:</span><span class="s1"> </span><span class="s5">none</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">.timeline-dot</span><span class="s4"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">position:</span><span class="s1"> </span><span class="s5">absolute</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">left:</span><span class="s1"> </span><span class="s9">8px</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">top:</span><span class="s1"> </span><span class="s9">5px</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">height:</span><span class="s1"> </span><span class="s9">1rem</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">width:</span><span class="s1"> </span><span class="s9">1rem</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">transform:</span><span class="s1"> </span><span class="s5">translateX(</span><span class="s9">-50%</span><span class="s5">)</span><span class="s7">;</span></p>
-<p class="p2"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">border-radius:</span><span class="s4"> </span><span class="s9">9999px</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">background-color:</span><span class="s1"> #8b949e</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">border:</span><span class="s1"> </span><span class="s9">3px</span><span class="s1"> </span><span class="s5">solid</span><span class="s1"> #0d1117</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">details</span><span class="s4"> </span><span class="s7">&gt;</span><span class="s4"> </span><span class="s1">summary</span><span class="s4"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">list-style:</span><span class="s1"> </span><span class="s5">none</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">details</span><span class="s4"> </span><span class="s7">&gt;</span><span class="s4"> </span><span class="s1">summary::-webkit-details-marker</span><span class="s4"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">display:</span><span class="s1"> </span><span class="s5">none</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">}</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">style</span><span class="s3">&gt;</span></p>
-<p class="p1"><span class="s3">&lt;/</span><span class="s1">head</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s3">&lt;</span><span class="s6">body</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-slate-900"</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s10"></span><br></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"header-bar py-4"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"container mx-auto max-w-5xl px-4 flex justify-between items-center"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">h1</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-xl font-bold text-gray-200"</span><span class="s3">&gt;</span><span class="s1">🏔️ Weisz Family Trip</span><span class="s3">&lt;/</span><span class="s6">h1</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-sm text-gray-400"</span><span class="s3">&gt;</span><span class="s1">Glacier | Aug 5 - 11, 2025</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s10"></span><br></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"container mx-auto max-w-5xl p-4 md:p-8"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">&lt;!-- Info Boxes --&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">section</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"info-box grid grid-cols-3 gap-6 mb-8 p-6 rounded-lg"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-center"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-sm text-gray-400"</span><span class="s3">&gt;</span><span class="s1">CURRENT LOCATION</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-lg font-semibold text-gray-200"</span><span class="s3">&gt;</span><span class="s4">Whitefish, MT</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-center"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-sm text-gray-400"</span><span class="s3">&gt;</span><span class="s1">LOCAL TIME</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"local-time"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-lg font-semibold text-gray-200"</span><span class="s3">&gt;</span><span class="s4">--:-- --</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s6">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-center"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"text-sm text-gray-400"</span><span class="s3">&gt;</span><span class="s1">WEATHER</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s6">a</span><span class="s4"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"#"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-lg font-semibold text-blue-400 hover:underline"</span><span class="s3">&gt;</span><span class="s4">View Forecast</span><span class="s3">&lt;/</span><span class="s6">a</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s6">section</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s10"></span><br></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s1">&lt;!-- Accordion Itinerary --&gt;</span></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">main</span><span class="s4"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"itinerary-accordion"</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"space-y-4"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">&lt;!-- Accordion items will be injected here --&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s6">main</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s6">div</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s10"></span><br></p>
-<p class="p3"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s6">footer</span><span class="s4"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-center py-8 text-gray-400"</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s3">&gt;</span><span class="s1">&amp;copy; 2025 The Weisz Family</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s6">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s5">"mt-2 text-sm"</span><span class="s3">&gt;</span><span class="s1">Itinerary by Avi Weisz</span><span class="s3">&lt;/</span><span class="s6">p</span><span class="s3">&gt;</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">footer</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s10"></span><br></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s1">script</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span>document</span><span class="s7">.</span><span class="s1">addEventListener</span><span class="s7">(</span><span class="s8">'DOMContentLoaded'</span><span class="s7">,</span><span class="s1"> </span><span class="s7">()</span><span class="s1"> </span><span class="s7">=&gt;</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> itineraryData </span><span class="s7">=</span><span class="s1"> </span><span class="s7">[</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>day</span><span class="s7">:</span><span class="s1"> </span><span class="s8">"Day 1"</span><span class="s7">,</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>date</span><span class="s7">:</span><span class="s1"> </span><span class="s8">"Tuesday, August 5, 2025"</span><span class="s7">,</span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">                    </span>title</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"Arrival &amp; Whitefish Area Exploration"</span><span class="s7">,</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>schedule</span><span class="s7">:</span><span class="s1"> </span><span class="s7">[</span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s7">{</span><span class="s4"> time</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"11:36 AM"</span><span class="s7">,</span><span class="s4"> event</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"Arrive at Glacier Park International Airport (FCA)"</span><span class="s4"> </span><span class="s7">},</span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s7">{</span><span class="s4"> time</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"12:30 PM"</span><span class="s7">,</span><span class="s4"> event</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"Pick up rental car at Thrifty Car Rental – FCA"</span><span class="s7">,</span><span class="s4"> details</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"Confirmation #: L2232814151. &lt;a href='https://view.emails.thrifty.com/?qs=088b9bb947f48271cea40c0762ec5f39ba8034a371687fe00cb80c55c42bfbdb25554a3d041770cc2b1cefad53bcf9958da5b54787427b4049c973382d8f980b5704c339bcb013ae1bf1ebc23654d3ca' target='_blank' class='text-blue-400 hover:underline'&gt;Reservation Link&lt;/a&gt;"</span><span class="s4"> </span><span class="s7">},</span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s7">{</span><span class="s4"> time</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"1:00 PM"</span><span class="s7">,</span><span class="s4"> event</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"Walmart Supercenter"</span><span class="s7">,</span><span class="s4"> link</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"https://www.google.com/maps/place/170+Hutton+Ranch+Rd,+Kalispell,+MT+59901/@48.2317221,-114.3287765,17z/data=!3m1!4b1!4m6!3m5!1s0x53665a65e7373bd1:0x92eb341f28421a73!8m2!3d48.2317221!4d-114.3262016!16s%2Fg%2F11c3q3gmb2?entry=ttu&amp;g_ep=EgoyMDI1MDczMC4wIKXMDSoASAFQAw%3D%3D"</span><span class="s4"> </span><span class="s7">},</span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s7">{</span><span class="s4"> time</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"2:00 PM"</span><span class="s7">,</span><span class="s4"> event</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"Depart to the North Star Ranch"</span><span class="s7">,</span><span class="s4"> link</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"https://www.google.com/maps/search/?api=1&amp;query=355+Beaver+Lake+Rd"</span><span class="s4"> </span><span class="s7">},</span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s7">{</span><span class="s4"> time</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"7:00 PM"</span><span class="s7">,</span><span class="s4"> event</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"Dinner"</span><span class="s7">,</span><span class="s4"> details</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"Citrus salmon with a side of quinoa."</span><span class="s4"> </span><span class="s7">}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s7">]</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s7">},</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>day</span><span class="s7">:</span><span class="s1"> </span><span class="s8">"Day 2"</span><span class="s7">,</span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">                    </span>date</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"Wednesday, August 6, 2025"</span><span class="s7">,</span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">                    </span>title</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"Glacier NP – Avalanche Lake &amp; Apgar Village"</span><span class="s7">,</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>schedule</span><span class="s7">:</span><span class="s1"> </span><span class="s7">[</span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s7">{</span><span class="s4"> time</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"11:00 AM"</span><span class="s7">,</span><span class="s4"> event</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"Depart for Glacier National Park"</span><span class="s7">,</span><span class="s4"> link</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"https://www.google.com/maps/search/?api=1&amp;query=Avalanche+Lk+Trl"</span><span class="s4"> </span><span class="s7">},</span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s7">{</span><span class="s4"> time</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"1:00 PM"</span><span class="s7">,</span><span class="s4"> event</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"Hike: Avalanche Lake Trail"</span><span class="s7">,</span><span class="s4"> details</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"Moderate | 5.9 mi round trip | 757 ft elevation gain. &lt;a href='https://www.alltrails.com/trail/us/montana/avalanche-lake' target='_blank' class='text-blue-400 hover:underline'&gt;Trail Info&lt;/a&gt;"</span><span class="s4"> </span><span class="s7">},</span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s7">{</span><span class="s4"> time</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"5:00 PM"</span><span class="s7">,</span><span class="s4"> event</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"Explore Apgar Village"</span><span class="s7">,</span><span class="s4"> details</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"Bike / Kayak at &lt;a href='https://www.glacieroutfitters.com/' target='_blank' class='text-blue-400 hover:underline'&gt;Glacier Outfitters&lt;/a&gt;. No reservation needed."</span><span class="s7">,</span><span class="s4"> link</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"https://www.google.com/maps/search/?api=1&amp;query=Apgar+Village"</span><span class="s4"> </span><span class="s7">},</span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s7">{</span><span class="s4"> time</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"6:00 PM"</span><span class="s7">,</span><span class="s4"> event</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"Depart to North Star Ranch"</span><span class="s7">,</span><span class="s4"> link</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"https://www.google.com/maps/search/?api=1&amp;query=North+Star+Ranch"</span><span class="s4"> </span><span class="s7">},</span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s7">{</span><span class="s4"> time</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"7:00 PM"</span><span class="s7">,</span><span class="s4"> event</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"Dinner"</span><span class="s7">,</span><span class="s4"> details</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"Rib steak with red wine reduction and a side of roasted asparagus."</span><span class="s4"> </span><span class="s7">}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s7">]</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s7">},</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>day</span><span class="s7">:</span><span class="s1"> </span><span class="s8">"Day 3"</span><span class="s7">,</span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">                    </span>date</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"Thursday, August 7, 2025"</span><span class="s7">,</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>title</span><span class="s7">:</span><span class="s1"> </span><span class="s8">"Going-to-the-Sun Road"</span><span class="s7">,</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>schedule</span><span class="s7">:</span><span class="s1"> </span><span class="s7">[</span></p>
-<p class="p8"><span class="s12"><span class="Apple-converted-space">                        </span></span><span class="s13">{</span><span class="s12"> time</span><span class="s13">:</span><span class="s12"> </span><span class="s10">"11:00 AM"</span><span class="s13">,</span><span class="s12"> event</span><span class="s13">:</span><span class="s12"> </span><span class="s10">"Depart to Logan Pass via Going-to-the-Sun Road"</span><span class="s13">,</span><span class="s12"> link</span><span class="s13">:</span><span class="s12"> </span><span class="s10">"https://www.google.com/maps/search/?api=1&amp;query=Logan+Pass+Visitor+Center"</span><span class="s13">,</span><span class="s12"> details</span><span class="s13">:</span><span class="s12"> </span><span class="s10">"&lt;span class='font-bold'&gt;Scenic Stops Along the Road:&lt;/span&gt;&lt;br&gt;Take your time and enjoy the views. Stops include:&lt;ul class='list-disc list-inside pl-2 mt-2'&gt;&lt;li&gt;&lt;a href='https://www.google.com/maps/place/McDonald+Falls/@48.6397116,-113.8641812,15z/data=!3m1!4b1!4m6!3m5!1s0x53661d3ccf427345:0xbe9e879c4e66efe5!8m2!3d48.6397121!4d-113.8641812!16s%2Fg%2F1tglmkwq?entry=ttu&amp;g_ep=EgoyMDI1MDczMC4wIKXMDSoASAFQAw%3D%3D' target='_blank' class='text-blue-400 hover:underline'&gt;McDonald Falls&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href='https://www.google.com/maps/place/Red+Rock+Point,+MT+59936/@48.6952507,-113.8162295,15z/data=!3m1!4b1!4m6!3m5!1s0x5368a8449b284b61:0x3aec95555681f7fd!8m2!3d48.6952513!4d-113.8162295!16s%2Fm%2F04b49pf?entry=ttu&amp;g_ep=EgoyMDI1MDczMC4wIKXMDSoASAFQAw%3D%3D' target='_blank' class='text-blue-400 hover:underline'&gt;Red Rock Point&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href='https://www.google.com/maps/place/The+Loop+Trailhead/@48.7549762,-113.8004923,17z/data=!3m1!4b1!4m6!3m5!1s0x5368a95824a3f593:0x3b6d06bb989ac8b!8m2!3d48.7549762!4d-113.8004923!16s%2Fg%2F1pzvlwtyk?entry=ttu&amp;g_ep=EgoyMDI1MDczMC4wIKXMDSoASAFQAw%3D%3D' target='_blank' class='text-blue-400 hover:underline'&gt;The Loop Overlook&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href='https://www.google.com/maps/search/?api=1&amp;query=Paradise+Meadow+Glacier+National+Park' target='_blank' class='text-blue-400 hover:underline'&gt;Paradise Meadow&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;"</span><span class="s12"> </span><span class="s13">},</span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s7">{</span><span class="s4"> time</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"2:00 PM"</span><span class="s7">,</span><span class="s4"> event</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"Hidden Lake Hike"</span><span class="s7">,</span><span class="s4"> details</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"Moderate | 2.7 mi round trip | 567 ft elevation gain. &lt;a href='https://www.alltrails.com/trail/us/montana/hidden-lake-lookout' target='_blank' class='text-blue-400 hover:underline'&gt;Trail Info&lt;/a&gt;"</span><span class="s4"> </span><span class="s7">},</span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s7">{</span><span class="s4"> time</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"5:00 PM"</span><span class="s7">,</span><span class="s4"> event</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"Depart to Lake McDonald Boat Tour"</span><span class="s7">,</span><span class="s4"> link</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"https://www.google.com/maps/search/?api=1&amp;query=Lake+McDonald+Lodge"</span><span class="s4"> </span><span class="s7">},</span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s7">{</span><span class="s4"> time</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"7:00 PM"</span><span class="s7">,</span><span class="s4"> event</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"Sunset Cruise at Lake McDonald"</span><span class="s7">,</span><span class="s4"> details</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"&lt;details class='mt-2'&gt;&lt;summary class='cursor-pointer text-blue-400 hover:underline'&gt;View Reservation&lt;/summary&gt;&lt;div class='mt-2 pl-4 border-l-2 border-gray-700'&gt;&lt;p&gt;&lt;strong&gt;Confirmation #:&lt;/strong&gt; JC072325180&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Name:&lt;/strong&gt; Jack Weisz&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Passengers:&lt;/strong&gt; 2 Adults (ages 13 and up)&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Total Fees:&lt;/strong&gt; $54.00&lt;/p&gt;&lt;/div&gt;&lt;/details&gt;"</span><span class="s4"> </span><span class="s7">},</span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s7">{</span><span class="s4"> time</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"8:00 PM"</span><span class="s7">,</span><span class="s4"> event</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"Depart to North Star Ranch"</span><span class="s7">,</span><span class="s4"> link</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"https://www.google.com/maps/search/?api=1&amp;query=North+Star+Ranch"</span><span class="s4"> </span><span class="s7">},</span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s7">{</span><span class="s4"> time</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"9:00 PM"</span><span class="s7">,</span><span class="s4"> event</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"Dinner"</span><span class="s7">,</span><span class="s4"> details</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"Chicken veggie stir fry &amp; seasoned rice."</span><span class="s4"> </span><span class="s7">}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s7">]</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s7">},</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>day</span><span class="s7">:</span><span class="s1"> </span><span class="s8">"Day 4"</span><span class="s7">,</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>date</span><span class="s7">:</span><span class="s1"> </span><span class="s8">"Friday, August 8, 2025"</span><span class="s7">,</span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">                    </span>title</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"Whitefish Fun &amp; Relaxation"</span><span class="s7">,</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>schedule</span><span class="s7">:</span><span class="s1"> </span><span class="s7">[</span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s7">{</span><span class="s4"> time</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"11:00 AM"</span><span class="s7">,</span><span class="s4"> event</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"Depart to Whitefish Ski Resort"</span><span class="s7">,</span><span class="s4"> link</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"https://www.google.com/maps/search/?api=1&amp;query=Whitefish+Ski+Resort+Base+Lodge"</span><span class="s4"> </span><span class="s7">},</span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s7">{</span><span class="s4"> time</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"12:00 PM"</span><span class="s7">,</span><span class="s4"> event</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"Scenic Chairlift"</span><span class="s7">,</span><span class="s4"> details</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"Buy Tickets when you get there."</span><span class="s4"> </span><span class="s7">},</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s7">{</span><span class="s1"> time</span><span class="s7">:</span><span class="s1"> </span><span class="s8">"12:30 PM"</span><span class="s7">,</span><span class="s1"> event</span><span class="s7">:</span><span class="s1"> </span><span class="s8">"Lunch"</span><span class="s1"> </span><span class="s7">},</span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s7">{</span><span class="s4"> time</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"2:00 PM"</span><span class="s7">,</span><span class="s4"> event</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"Depart to the Whitefish Lodge"</span><span class="s7">,</span><span class="s4"> link</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"https://www.google.com/maps/search/?api=1&amp;query=The+Lodge+at+Whitefish+Lake"</span><span class="s4"> </span><span class="s7">},</span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s7">{</span><span class="s4"> time</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"3:00 PM"</span><span class="s7">,</span><span class="s4"> event</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"Whitefish Lodge Spa"</span><span class="s7">,</span><span class="s4"> details</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"&lt;details class='mt-2'&gt;&lt;summary class='cursor-pointer text-blue-400 hover:underline'&gt;View Reservation&lt;/summary&gt;&lt;div class='mt-2 pl-4 border-l-2 border-gray-700'&gt;&lt;p&gt;&lt;strong&gt;Service:&lt;/strong&gt; Rest Herbal Massage 50 min&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Staff:&lt;/strong&gt; Nayeli&lt;/p&gt;&lt;/div&gt;&lt;/details&gt;"</span><span class="s4"> </span><span class="s7">},</span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s7">{</span><span class="s4"> time</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"4:00 PM"</span><span class="s7">,</span><span class="s4"> event</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"Discover Whitefish"</span><span class="s7">,</span><span class="s4"> link</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"https://www.google.com/maps/search/?api=1&amp;query=224+Central+Ave"</span><span class="s4"> </span><span class="s7">}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s7">]</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s7">},</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>day</span><span class="s7">:</span><span class="s1"> </span><span class="s8">"Day 5"</span><span class="s7">,</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>date</span><span class="s7">:</span><span class="s1"> </span><span class="s8">"Sunday, August 10, 2025"</span><span class="s7">,</span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">                    </span>title</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"Farms, Flowers &amp; Off-Roading"</span><span class="s7">,</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>schedule</span><span class="s7">:</span><span class="s1"> </span><span class="s7">[</span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s7">{</span><span class="s4"> time</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"10:30 AM"</span><span class="s7">,</span><span class="s4"> event</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"Depart to the lavender farm"</span><span class="s7">,</span><span class="s4"> link</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"https://www.google.com/maps/search/?api=1&amp;query=1312+Hard+Rock+Rd"</span><span class="s4"> </span><span class="s7">},</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s7">{</span><span class="s1"> time</span><span class="s7">:</span><span class="s1"> </span><span class="s8">"11:30 AM"</span><span class="s7">,</span><span class="s1"> event</span><span class="s7">:</span><span class="s1"> </span><span class="s8">"U Pick Flowers"</span><span class="s1"> </span><span class="s7">},</span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s7">{</span><span class="s4"> time</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"12:30 PM"</span><span class="s7">,</span><span class="s4"> event</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"Depart to Glacier Ridge Runners"</span><span class="s7">,</span><span class="s4"> link</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"https://www.google.com/maps/search/?api=1&amp;query=48°23'9.5676N,114°3'30.37W"</span><span class="s4"> </span><span class="s7">},</span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s7">{</span><span class="s4"> time</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"1:30 PM"</span><span class="s7">,</span><span class="s4"> event</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"Off Road Experience &amp; The Hungry Horse Dam"</span><span class="s7">,</span><span class="s4"> details</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"&lt;details class='mt-2'&gt;&lt;summary class='cursor-pointer text-blue-400 hover:underline'&gt;View Reservation&lt;/summary&gt;&lt;div class='mt-2 pl-4 border-l-2 border-gray-700'&gt;&lt;p&gt;&lt;strong&gt;Reservation Name:&lt;/strong&gt; Avraham Weisz&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Vehicle:&lt;/strong&gt; 2 Seater Side-by-Side (Half Day) - 2 Seat Can-Am Maverick #11&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Pickup:&lt;/strong&gt; Aug 10, 2025 at 01:30 PM&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Drop Off:&lt;/strong&gt; Aug 10, 2025 at 05:30 PM&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Reservation Code:&lt;/strong&gt; NCBV2M&lt;/p&gt;&lt;p&gt;&lt;strong&gt;PIN:&lt;/strong&gt; 8194&lt;/p&gt;&lt;/div&gt;&lt;/details&gt;"</span><span class="s4"> </span><span class="s7">},</span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s7">{</span><span class="s4"> time</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"5:30 PM"</span><span class="s7">,</span><span class="s4"> event</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"Depart to North Star Ranch"</span><span class="s7">,</span><span class="s4"> link</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"https://www.google.com/maps/search/?api=1&amp;query=North+Star+Ranch"</span><span class="s4"> </span><span class="s7">},</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s7">{</span><span class="s1"> time</span><span class="s7">:</span><span class="s1"> </span><span class="s8">"7:00 PM"</span><span class="s7">,</span><span class="s1"> event</span><span class="s7">:</span><span class="s1"> </span><span class="s8">"Dinner"</span><span class="s7">,</span><span class="s1"> details</span><span class="s7">:</span><span class="s1"> </span><span class="s8">"Baby Back Ribs"</span><span class="s1"> </span><span class="s7">}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s7">]</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s7">},</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>day</span><span class="s7">:</span><span class="s1"> </span><span class="s8">"Day 6"</span><span class="s7">,</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>date</span><span class="s7">:</span><span class="s1"> </span><span class="s8">"Monday, August 11, 2025"</span><span class="s7">,</span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">                    </span>title</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"St. Mary Lake &amp; 3 Falls Hike"</span><span class="s7">,</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>schedule</span><span class="s7">:</span><span class="s1"> </span><span class="s7">[</span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s7">{</span><span class="s4"> time</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"9:30 AM"</span><span class="s7">,</span><span class="s4"> event</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"Depart to the St Mary Boat Shuttle"</span><span class="s7">,</span><span class="s4"> link</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"https://www.google.com/maps/place/Rising+Sun+Boat+Dock/@48.6905469,-113.5273603,17z/data=!3m1!4b1!4m6!3m5!1s0x5368bb000ac67b1d:0xf75d7cb9281a22f4!8m2!3d48.6905469!4d-113.5247854!16s%2Fg%2F11y6brxfk5?entry=ttu&amp;g_ep=EgoyMDI1MDczMC4wIKXMDSoASAFQAw%3D%3D"</span><span class="s4"> </span><span class="s7">},</span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s7">{</span><span class="s4"> time</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"1:00 PM"</span><span class="s7">,</span><span class="s4"> event</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"Rising Sun Boat Shuttle"</span><span class="s7">,</span><span class="s4"> details</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"&lt;details class='mt-2'&gt;&lt;summary class='cursor-pointer text-blue-400 hover:underline'&gt;View Reservation&lt;/summary&gt;&lt;div class='mt-2 pl-4 border-l-2 border-gray-700'&gt;&lt;p&gt;&lt;strong&gt;Confirmation #:&lt;/strong&gt; JC072325180&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Tour:&lt;/strong&gt; Scenic Tour + Hike&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Passengers:&lt;/strong&gt; 2 Adults (ages 13 and up)&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Price:&lt;/strong&gt; $81.00&lt;/p&gt;&lt;/div&gt;&lt;/details&gt;"</span><span class="s4"> </span><span class="s7">},</span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s7">{</span><span class="s4"> time</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"1:45 PM"</span><span class="s7">,</span><span class="s4"> event</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"3 Falls Hike"</span><span class="s7">,</span><span class="s4"> details</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"&lt;a href='https://www.alltrails.com/trail/us/montana/st-mary-virginia-and-baring-falls' target='_blank' class='text-blue-400 hover:underline'&gt;Trail Info&lt;/a&gt;"</span><span class="s4"> </span><span class="s7">},</span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s7">{</span><span class="s4"> time</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"5:00 PM"</span><span class="s7">,</span><span class="s4"> event</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"Depart to the North Star Ranch"</span><span class="s7">,</span><span class="s4"> link</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"https://www.google.com/maps/search/?api=1&amp;query=North+Star+Ranch"</span><span class="s4"> </span><span class="s7">},</span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">                        </span></span><span class="s7">{</span><span class="s4"> time</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"7:00 PM"</span><span class="s7">,</span><span class="s4"> event</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"Dinner"</span><span class="s7">,</span><span class="s4"> details</span><span class="s7">:</span><span class="s4"> </span><span class="s1">"Burgers with a side of grilled veggie"</span><span class="s4"> </span><span class="s7">}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s7">]</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s7">}</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s7">];</span></p>
-<p class="p6"><span class="s10"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> accordionContainer </span><span class="s7">=</span><span class="s1"> document</span><span class="s7">.</span><span class="s1">getElementById</span><span class="s7">(</span><span class="s8">'itinerary-accordion'</span><span class="s7">);</span></p>
-<p class="p6"><span class="s10"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>itineraryData</span><span class="s7">.</span><span class="s1">forEach</span><span class="s7">(</span><span class="s1">day </span><span class="s7">=&gt;</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s11">const</span><span class="s1"> item </span><span class="s7">=</span><span class="s1"> document</span><span class="s7">.</span><span class="s1">createElement</span><span class="s7">(</span><span class="s8">'div'</span><span class="s7">);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>item</span><span class="s7">.</span><span class="s1">className </span><span class="s7">=</span><span class="s1"> </span><span class="s8">'accordion-item'</span><span class="s7">;</span></p>
-<p class="p6"><span class="s10"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s11">let</span><span class="s1"> scheduleHtml </span><span class="s7">=</span><span class="s1"> </span><span class="s8">''</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>day</span><span class="s7">.</span><span class="s1">schedule</span><span class="s7">.</span><span class="s1">forEach</span><span class="s7">(</span><span class="s1">event </span><span class="s7">=&gt;</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">                    </span></span><span class="s11">let</span><span class="s4"> eventHtml </span><span class="s7">=</span><span class="s4"> </span><span class="s1">`&lt;h3 class="font-semibold text-lg text-gray-200"&gt;</span><span class="s7">${</span><span class="s4">event</span><span class="s7">.</span><span class="s4">event</span><span class="s7">}</span><span class="s1">&lt;/h3&gt;`</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s11">if</span><span class="s1"> </span><span class="s7">(</span><span class="s1">event</span><span class="s7">.</span><span class="s1">link</span><span class="s7">)</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p7"><span class="s4"><span class="Apple-converted-space">                        </span>eventHtml </span><span class="s7">=</span><span class="s4"> </span><span class="s1">`&lt;h3 class="font-semibold text-lg text-gray-200"&gt;&lt;a href="</span><span class="s7">${</span><span class="s4">event</span><span class="s7">.</span><span class="s4">link</span><span class="s7">}</span><span class="s1">" target="_blank" class="text-blue-400 hover:underline"&gt;</span><span class="s7">${</span><span class="s4">event</span><span class="s7">.</span><span class="s4">event</span><span class="s7">}</span><span class="s1">&lt;/a&gt;&lt;/h3&gt;`</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s7">}</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">                    </span></span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s11">let</span><span class="s1"> detailsHtml </span><span class="s7">=</span><span class="s1"> </span><span class="s8">''</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s11">if</span><span class="s1"> </span><span class="s7">(</span><span class="s1">event</span><span class="s7">.</span><span class="s1">details</span><span class="s7">)</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                        </span>detailsHtml </span><span class="s7">=</span><span class="s1"> </span><span class="s8">`&lt;div class="text-gray-400 text-sm"&gt;</span><span class="s7">${</span><span class="s1">event</span><span class="s7">.</span><span class="s1">details</span><span class="s7">}</span><span class="s8">&lt;/div&gt;`</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s7">}</span></p>
-<p class="p6"><span class="s10"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>scheduleHtml </span><span class="s7">+=</span><span class="s1"> </span><span class="s8">`</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div class="timeline-item relative pl-6 pb-8"&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;div class="timeline-dot"&gt;&lt;/div&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;p class="font-medium text-gray-500"&gt;</span><span class="s7">${</span><span class="s4">event</span><span class="s7">.</span><span class="s4">time</span><span class="s7">}</span><span class="s1">&lt;/p&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s7">${</span><span class="s4">eventHtml</span><span class="s7">}</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s7">${</span><span class="s4">detailsHtml</span><span class="s7">}</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">                    </span>`</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s7">});</span></p>
-<p class="p6"><span class="s10"></span><br></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>item</span><span class="s7">.</span><span class="s1">innerHTML </span><span class="s7">=</span><span class="s1"> </span><span class="s8">`</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="accordion-header flex justify-between items-center p-4 cursor-pointer"&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;h3 class="font-bold text-lg text-gray-200"&gt;</span><span class="s7">${</span><span class="s4">day</span><span class="s7">.</span><span class="s4">date</span><span class="s7">}</span><span class="s1">&lt;/h3&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;p class="text-sm text-gray-400"&gt;</span><span class="s7">${</span><span class="s4">day</span><span class="s7">.</span><span class="s4">title</span><span class="s7">}</span><span class="s1">&lt;/p&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div class="chevron text-gray-400"&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">                                </span>&lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;/svg&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="accordion-content"&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div class="relative"&gt;</span><span class="s7">${</span><span class="s4">scheduleHtml</span><span class="s7">}</span><span class="s1">&lt;/div&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">                </span>`</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>accordionContainer</span><span class="s7">.</span><span class="s1">appendChild</span><span class="s7">(</span><span class="s1">item</span><span class="s7">);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s7">});</span></p>
-<p class="p6"><span class="s10"></span><br></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">// Accordion functionality</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">const</span><span class="s1"> accordionItems </span><span class="s7">=</span><span class="s1"> document</span><span class="s7">.</span><span class="s1">querySelectorAll</span><span class="s7">(</span><span class="s8">'.accordion-item'</span><span class="s7">);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>accordionItems</span><span class="s7">.</span><span class="s1">forEach</span><span class="s7">(</span><span class="s1">item </span><span class="s7">=&gt;</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s11">const</span><span class="s1"> header </span><span class="s7">=</span><span class="s1"> item</span><span class="s7">.</span><span class="s1">querySelector</span><span class="s7">(</span><span class="s8">'.accordion-header'</span><span class="s7">);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>header</span><span class="s7">.</span><span class="s1">addEventListener</span><span class="s7">(</span><span class="s8">'click'</span><span class="s7">,</span><span class="s1"> </span><span class="s7">()</span><span class="s1"> </span><span class="s7">=&gt;</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>item</span><span class="s7">.</span><span class="s1">classList</span><span class="s7">.</span><span class="s1">toggle</span><span class="s7">(</span><span class="s8">'active'</span><span class="s7">);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s7">});</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s7">});</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
-<p class="p5"><span class="s4"><span class="Apple-converted-space">            </span></span><span class="s1">// Local time in Montana (America/Denver)</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s11">function</span><span class="s1"> updateTime</span><span class="s7">()</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s11">const</span><span class="s1"> timeEl </span><span class="s7">=</span><span class="s1"> document</span><span class="s7">.</span><span class="s1">getElementById</span><span class="s7">(</span><span class="s8">'local-time'</span><span class="s7">);</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s11">const</span><span class="s1"> now </span><span class="s7">=</span><span class="s1"> </span><span class="s11">new</span><span class="s1"> </span><span class="s14">Date</span><span class="s7">();</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s11">const</span><span class="s1"> timeString </span><span class="s7">=</span><span class="s1"> now</span><span class="s7">.</span><span class="s1">toLocaleTimeString</span><span class="s7">(</span><span class="s8">'en-US'</span><span class="s7">,</span><span class="s1"> </span><span class="s7">{</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>timeZone</span><span class="s7">:</span><span class="s1"> </span><span class="s8">'America/Denver'</span><span class="s7">,</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>hour</span><span class="s7">:</span><span class="s1"> </span><span class="s8">'numeric'</span><span class="s7">,</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>minute</span><span class="s7">:</span><span class="s1"> </span><span class="s8">'2-digit'</span><span class="s7">,</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                    </span>hour12</span><span class="s7">:</span><span class="s1"> </span><span class="s11">true</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s7">});</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">                </span>timeEl</span><span class="s7">.</span><span class="s1">textContent </span><span class="s7">=</span><span class="s1"> timeString</span><span class="s7">;</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s7">}</span></p>
-<p class="p6"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>updateTime</span><span class="s7">();</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">            </span>setInterval</span><span class="s7">(</span><span class="s1">updateTime</span><span class="s7">,</span><span class="s1"> </span><span class="s15">1000</span><span class="s7">);</span><span class="s1"> </span><span class="s16">// Update every second</span></p>
-<p class="p4"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s7">});</span></p>
-<p class="p1"><span class="s4"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">script</span><span class="s3">&gt;</span></p>
-<p class="p1"><span class="s3">&lt;/</span><span class="s1">body</span><span class="s3">&gt;</span></p>
-<p class="p1"><span class="s3">&lt;/</span><span class="s1">html</span><span class="s3">&gt;</span></p>
-<p class="p6"><span class="s10"></span><br></p>
+<body class="bg-slate-900">
+
+    <div class="header-bar py-4">
+        <div class="container mx-auto max-w-5xl px-4 flex justify-between items-center">
+            <h1 class="text-xl font-bold text-gray-200">🏔️ Weisz Family Trip</h1>
+            <p class="text-sm text-gray-400">Glacier | Aug 5 - 11, 2025</p>
+        </div>
+    </div>
+
+    <div class="container mx-auto max-w-5xl p-4 md:p-8">
+        <!-- Info Boxes -->
+        <section class="info-box grid grid-cols-3 gap-6 mb-8 p-6 rounded-lg">
+            <div class="text-center">
+                <p class="text-sm text-gray-400">CURRENT LOCATION</p>
+                <p class="text-lg font-semibold text-gray-200">Whitefish, MT</p>
+            </div>
+            <div class="text-center">
+                <p class="text-sm text-gray-400">LOCAL TIME</p>
+                <p id="local-time" class="text-lg font-semibold text-gray-200">--:-- --</p>
+            </div>
+            <div class="text-center">
+                <p class="text-sm text-gray-400">WEATHER</p>
+                <a href="#" class="text-lg font-semibold text-blue-400 hover:underline">View Forecast</a>
+            </div>
+        </section>
+
+        <!-- Accordion Itinerary -->
+        <main id="itinerary-accordion" class="space-y-4">
+            <!-- Accordion items will be injected here -->
+        </main>
+    </div>
+
+    <footer class="text-center py-8 text-gray-400">
+        <p>&copy; 2025 The Weisz Family</p>
+        <p class="mt-2 text-sm">Itinerary by Avi Weisz</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const itineraryData = [
+                {
+                    day: "Day 1",
+                    date: "Tuesday, August 5, 2025",
+                    title: "Arrival & Whitefish Area Exploration",
+                    schedule: [
+                        { time: "11:36 AM", event: "Arrive at Glacier Park International Airport (FCA)" },
+                        { time: "12:30 PM", event: "Pick up rental car at Thrifty Car Rental – FCA", details: "Confirmation #: L2232814151. <a href='https://view.emails.thrifty.com/?qs=088b9bb947f48271cea40c0762ec5f39ba8034a371687fe00cb80c55c42bfbdb25554a3d041770cc2b1cefad53bcf9958da5b54787427b4049c973382d8f980b5704c339bcb013ae1bf1ebc23654d3ca' target='_blank' class='text-blue-400 hover:underline'>Reservation Link</a>" },
+                        { time: "1:00 PM", event: "Walmart Supercenter", link: "https://www.google.com/maps/place/170+Hutton+Ranch+Rd,+Kalispell,+MT+59901/@48.2317221,-114.3287765,17z/data=!3m1!4b1!4m6!3m5!1s0x53665a65e7373bd1:0x92eb341f28421a73!8m2!3d48.2317221!4d-114.3262016!16s%2Fg%2F11c3q3gmb2?entry=ttu&g_ep=EgoyMDI1MDczMC4wIKXMDSoASAFQAw%3D%3D" },
+                        { time: "2:00 PM", event: "Depart to the North Star Ranch", link: "https://www.google.com/maps/search/?api=1&query=355+Beaver+Lake+Rd" },
+                        { time: "7:00 PM", event: "Dinner", details: "Citrus salmon with a side of quinoa." }
+                    ]
+                },
+                {
+                    day: "Day 2",
+                    date: "Wednesday, August 6, 2025",
+                    title: "Glacier NP – Avalanche Lake & Apgar Village",
+                    schedule: [
+                        { time: "11:00 AM", event: "Depart for Glacier National Park", link: "https://www.google.com/maps/search/?api=1&query=Avalanche+Lk+Trl" },
+                        { time: "1:00 PM", event: "Hike: Avalanche Lake Trail", details: "Moderate | 5.9 mi round trip | 757 ft elevation gain. <a href='https://www.alltrails.com/trail/us/montana/avalanche-lake' target='_blank' class='text-blue-400 hover:underline'>Trail Info</a>" },
+                        { time: "5:00 PM", event: "Explore Apgar Village", details: "Bike / Kayak at <a href='https://www.glacieroutfitters.com/' target='_blank' class='text-blue-400 hover:underline'>Glacier Outfitters</a>. No reservation needed.", link: "https://www.google.com/maps/search/?api=1&query=Apgar+Village" },
+                        { time: "6:00 PM", event: "Depart to North Star Ranch", link: "https://www.google.com/maps/search/?api=1&query=North+Star+Ranch" },
+                        { time: "7:00 PM", event: "Dinner", details: "Rib steak with red wine reduction and a side of roasted asparagus." }
+                    ]
+                },
+                {
+                    day: "Day 3",
+                    date: "Thursday, August 7, 2025",
+                    title: "Going-to-the-Sun Road",
+                    schedule: [
+                        { time: "11:00 AM", event: "Depart to Logan Pass via Going-to-the-Sun Road", link: "https://www.google.com/maps/search/?api=1&query=Logan+Pass+Visitor+Center", details: "<span class='font-bold'>Scenic Stops Along the Road:</span><br>Take your time and enjoy the views. Stops include:<ul class='list-disc list-inside pl-2 mt-2'><li><a href='https://www.google.com/maps/place/McDonald+Falls/@48.6397116,-113.8641812,15z/data=!3m1!4b1!4m6!3m5!1s0x53661d3ccf427345:0xbe9e879c4e66efe5!8m2!3d48.6397121!4d-113.8641812!16s%2Fg%2F1tglmkwq?entry=ttu&g_ep=EgoyMDI1MDczMC4wIKXMDSoASAFQAw%3D%3D' target='_blank' class='text-blue-400 hover:underline'>McDonald Falls</a></li><li><a href='https://www.google.com/maps/place/Red+Rock+Point,+MT+59936/@48.6952507,-113.8162295,15z/data=!3m1!4b1!4m6!3m5!1s0x5368a8449b284b61:0x3aec95555681f7fd!8m2!3d48.6952513!4d-113.8162295!16s%2Fm%2F04b49pf?entry=ttu&g_ep=EgoyMDI1MDczMC4wIKXMDSoASAFQAw%3D%3D' target='_blank' class='text-blue-400 hover:underline'>Red Rock Point</a></li><li><a href='https://www.google.com/maps/place/The+Loop+Trailhead/@48.7549762,-113.8004923,17z/data=!3m1!4b1!4m6!3m5!1s0x5368a95824a3f593:0x3b6d06bb989ac8b!8m2!3d48.7549762!4d-113.8004923!16s%2Fg%2F1pzvlwtyk?entry=ttu&g_ep=EgoyMDI1MDczMC4wIKXMDSoASAFQAw%3D%3D' target='_blank' class='text-blue-400 hover:underline'>The Loop Overlook</a></li><li><a href='https://www.google.com/maps/search/?api=1&query=Paradise+Meadow+Glacier+National+Park' target='_blank' class='text-blue-400 hover:underline'>Paradise Meadow</a></li></ul>" },
+                        { time: "2:00 PM", event: "Hidden Lake Hike", details: "Moderate | 2.7 mi round trip | 567 ft elevation gain. <a href='https://www.alltrails.com/trail/us/montana/hidden-lake-lookout' target='_blank' class='text-blue-400 hover:underline'>Trail Info</a>" },
+                        { time: "5:00 PM", event: "Depart to Lake McDonald Boat Tour", link: "https://www.google.com/maps/search/?api=1&query=Lake+McDonald+Lodge" },
+                        { time: "7:00 PM", event: "Sunset Cruise at Lake McDonald", details: "<details class='mt-2'><summary class='cursor-pointer text-blue-400 hover:underline'>View Reservation</summary><div class='mt-2 pl-4 border-l-2 border-gray-700'><p><strong>Confirmation #:</strong> JC072325180</p><p><strong>Name:</strong> Jack Weisz</p><p><strong>Passengers:</strong> 2 Adults (ages 13 and up)</p><p><strong>Total Fees:</strong> $54.00</p></div></details>" },
+                        { time: "8:00 PM", event: "Depart to North Star Ranch", link: "https://www.google.com/maps/search/?api=1&query=North+Star+Ranch" },
+                        { time: "9:00 PM", event: "Dinner", details: "Chicken veggie stir fry & seasoned rice." }
+                    ]
+                },
+                {
+                    day: "Day 4",
+                    date: "Friday, August 8, 2025",
+                    title: "Whitefish Fun & Relaxation",
+                    schedule: [
+                        { time: "11:00 AM", event: "Depart to Whitefish Ski Resort", link: "https://www.google.com/maps/search/?api=1&query=Whitefish+Ski+Resort+Base+Lodge" },
+                        { time: "12:00 PM", event: "Scenic Chairlift", details: "Buy Tickets when you get there." },
+                        { time: "12:30 PM", event: "Lunch" },
+                        { time: "2:00 PM", event: "Depart to the Whitefish Lodge", link: "https://www.google.com/maps/search/?api=1&query=The+Lodge+at+Whitefish+Lake" },
+                        { time: "3:00 PM", event: "Whitefish Lodge Spa", details: "<details class='mt-2'><summary class='cursor-pointer text-blue-400 hover:underline'>View Reservation</summary><div class='mt-2 pl-4 border-l-2 border-gray-700'><p><strong>Service:</strong> Rest Herbal Massage 50 min</p><p><strong>Staff:</strong> Nayeli</p></div></details>" },
+                        { time: "4:00 PM", event: "Discover Whitefish", link: "https://www.google.com/maps/search/?api=1&query=224+Central+Ave" }
+                    ]
+                },
+                {
+                    day: "Day 5",
+                    date: "Sunday, August 10, 2025",
+                    title: "Farms, Flowers & Off-Roading",
+                    schedule: [
+                        { time: "10:30 AM", event: "Depart to the lavender farm", link: "https://www.google.com/maps/search/?api=1&query=1312+Hard+Rock+Rd" },
+                        { time: "11:30 AM", event: "U Pick Flowers" },
+                        { time: "12:30 PM", event: "Depart to Glacier Ridge Runners", link: "https://www.google.com/maps/search/?api=1&query=48°23'9.5676N,114°3'30.37W" },
+                        { time: "1:30 PM", event: "Off Road Experience & The Hungry Horse Dam", details: "<details class='mt-2'><summary class='cursor-pointer text-blue-400 hover:underline'>View Reservation</summary><div class='mt-2 pl-4 border-l-2 border-gray-700'><p><strong>Reservation Name:</strong> Avraham Weisz</p><p><strong>Vehicle:</strong> 2 Seater Side-by-Side (Half Day) - 2 Seat Can-Am Maverick #11</p><p><strong>Pickup:</strong> Aug 10, 2025 at 01:30 PM</p><p><strong>Drop Off:</strong> Aug 10, 2025 at 05:30 PM</p><p><strong>Reservation Code:</strong> NCBV2M</p><p><strong>PIN:</strong> 8194</p></div></details>" },
+                        { time: "5:30 PM", event: "Depart to North Star Ranch", link: "https://www.google.com/maps/search/?api=1&query=North+Star+Ranch" },
+                        { time: "7:00 PM", event: "Dinner", details: "Baby Back Ribs" }
+                    ]
+                },
+                {
+                    day: "Day 6",
+                    date: "Monday, August 11, 2025",
+                    title: "St. Mary Lake & 3 Falls Hike",
+                    schedule: [
+                        { time: "9:30 AM", event: "Depart to the St Mary Boat Shuttle", link: "https://www.google.com/maps/place/Rising+Sun+Boat+Dock/@48.6905469,-113.5273603,17z/data=!3m1!4b1!4m6!3m5!1s0x5368bb000ac67b1d:0xf75d7cb9281a22f4!8m2!3d48.6905469!4d-113.5247854!16s%2Fg%2F11y6brxfk5?entry=ttu&g_ep=EgoyMDI1MDczMC4wIKXMDSoASAFQAw%3D%3D" },
+                        { time: "1:00 PM", event: "Rising Sun Boat Shuttle", details: "<details class='mt-2'><summary class='cursor-pointer text-blue-400 hover:underline'>View Reservation</summary><div class='mt-2 pl-4 border-l-2 border-gray-700'><p><strong>Confirmation #:</strong> JC072325180</p><p><strong>Tour:</strong> Scenic Tour + Hike</p><p><strong>Passengers:</strong> 2 Adults (ages 13 and up)</p><p><strong>Price:</strong> $81.00</p></div></details>" },
+                        { time: "1:45 PM", event: "3 Falls Hike", details: "<a href='https://www.alltrails.com/trail/us/montana/st-mary-virginia-and-baring-falls' target='_blank' class='text-blue-400 hover:underline'>Trail Info</a>" },
+                        { time: "5:00 PM", event: "Depart to the North Star Ranch", link: "https://www.google.com/maps/search/?api=1&query=North+Star+Ranch" },
+                        { time: "7:00 PM", event: "Dinner", details: "Burgers with a side of grilled veggie" }
+                    ]
+                }
+            ];
+
+            const accordionContainer = document.getElementById('itinerary-accordion');
+
+            itineraryData.forEach(day => {
+                const item = document.createElement('div');
+                item.className = 'accordion-item';
+
+                let scheduleHtml = '';
+                day.schedule.forEach(event => {
+                    let eventHtml = `<h3 class="font-semibold text-lg text-gray-200">${event.event}</h3>`;
+                    if (event.link) {
+                        eventHtml = `<h3 class="font-semibold text-lg text-gray-200"><a href="${event.link}" target="_blank" class="text-blue-400 hover:underline">${event.event}</a></h3>`;
+                    }
+                    
+                    let detailsHtml = '';
+                    if (event.details) {
+                        detailsHtml = `<div class="text-gray-400 text-sm">${event.details}</div>`;
+                    }
+
+                    scheduleHtml += `
+                        <div class="timeline-item relative pl-6 pb-8">
+                            <div class="timeline-dot"></div>
+                            <p class="font-medium text-gray-500">${event.time}</p>
+                            ${eventHtml}
+                            ${detailsHtml}
+                        </div>
+                    `;
+                });
+
+                item.innerHTML = `
+                    <div class="accordion-header flex justify-between items-center p-4 cursor-pointer">
+                        <div>
+                            <h3 class="font-bold text-lg text-gray-200">${day.date}</h3>
+                            <p class="text-sm text-gray-400">${day.title}</p>
+                        </div>
+                        <div class="chevron text-gray-400">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="relative">${scheduleHtml}</div>
+                    </div>
+                `;
+                accordionContainer.appendChild(item);
+            });
+
+            // Accordion functionality
+            const accordionItems = document.querySelectorAll('.accordion-item');
+            accordionItems.forEach(item => {
+                const header = item.querySelector('.accordion-header');
+                header.addEventListener('click', () => {
+                    item.classList.toggle('active');
+                });
+            });
+            
+            // Local time in Montana (America/Denver)
+            function updateTime() {
+                const timeEl = document.getElementById('local-time');
+                const now = new Date();
+                const timeString = now.toLocaleTimeString('en-US', {
+                    timeZone: 'America/Denver',
+                    hour: 'numeric',
+                    minute: '2-digit',
+                    hour12: true
+                });
+                timeEl.textContent = timeString;
+            }
+            
+            updateTime();
+            setInterval(updateTime, 1000); // Update every second
+        });
+    </script>
 </body>
 </html>
